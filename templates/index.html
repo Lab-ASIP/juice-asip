@@ -88,8 +88,15 @@
                 {% if h.children %}
                 {% for h2 in h.children %}
                 <div class="toc-item-child">
-                    <a class="subtext" href="{{h2.permalink | safe}}"><small>- {{ h2.title }}</small></a>
+                    <a class="subtext" href="{{h2.permalink | safe}}"><small>&ensp;{{ h2.title }}</small></a>
                 </div>
+                {% if h2.children %}
+                {% for h3 in h2.children %}
+                <div class="toc-item-child">
+                    <a class="subtext" href="{{h3.permalink | safe}}"><small>&emsp;{{ h3.title }}</small></a>
+                </div>
+                {% endfor %}
+                {% endif %}
                 {% endfor %}
                 {% endif %}
                 {% endfor %}
